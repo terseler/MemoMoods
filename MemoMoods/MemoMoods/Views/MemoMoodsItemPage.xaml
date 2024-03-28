@@ -51,14 +51,14 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
                 <Label Text="Here is the first question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-            <Entry Text="{Binding Question1}" />
+                <Entry Text="{Binding Question1}" TextColor="Black"/>
             </StackLayout>
             
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
                 <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Entry Text="{Binding Question2}" />
+                <Entry Text="{Binding Question2}" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -69,7 +69,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
                 <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" />
+                <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -82,7 +82,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
 
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Label Text="Did you meet yesterday's Goals?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Switch IsToggled="{Binding GoalsMet}" />
+                <Switch IsToggled="{Binding GoalsMet}" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -92,7 +92,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
                 <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" />
+                <Entry Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
