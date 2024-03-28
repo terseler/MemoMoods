@@ -1,5 +1,4 @@
 ﻿using System;
-using Android.Content.Res;
 using MemoMoods.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -36,5 +35,6 @@ namespace MemoMoods.Views
                 });
             }
         }
+
     }
 }

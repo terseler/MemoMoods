@@ -2,35 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="MemoMoods.Views.MemoMoodsEntriesPage"
-Title="Todo">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="OnItemAdded">
-            <ToolbarItem.IconImageSource>
-                <OnPlatform x:TypeArguments="ImageSource">
-                    <On Platform="Android, UWP"
-Value="plus.png" />
-                </OnPlatform>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-    <ListView x:Name="listView"
-Margin="20"
-ItemSelected="OnListItemSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        
-                        <Label Text="{Binding CowMood}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Label Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Label Text="{Binding Question2}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Label Text="{Binding Question3}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Label Text="{Binding JournalEntry}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding GoalsMet}" />
+Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White">
+    <StackLayout>
+        
+        <Image Source="Banner0.png"></Image>
+
+        <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+            <Image Source="MemoStreak" WidthRequest="150"/>
+            <Label Text="100" FontAttributes="Bold" FontSize="20" TextColor="#351c75" HorizontalOptions="Center"/>
+        </StackLayout>
+        <Image Source="Divider"/>
+
+        <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+                            <Image Source="0"/>
+                            <Label Text="{Binding CowMood}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Question2}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Question3}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding JournalEntry}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding GoalsMet}" />
                     
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="+" TextColor="#351c75" FontSize="50" CornerRadius="15" BackgroundColor="#d9d2e9" Margin="0,0,20,20" Clicked="OnItemAdded" HorizontalOptions="End"></Button>
+
+    </StackLayout>
 </ContentPage>
