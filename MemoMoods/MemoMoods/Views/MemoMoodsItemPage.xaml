@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="MemoMoods.Views.MemoMoodsItemPage"
+Title="{Binding Name}">
+    <StackLayout Margin="20"
+VerticalOptions="StartAndExpand">
+        <Label Text="Which Cow Describes Your Mood?" />
+        <Entry Text="{Binding CowMood}" />
+        <!-- logan you're going to have to change up the binding here to work with images, 
+        CowMood is the entity in the table 0 - 5 for each cow. 
+        right now i have a Text field for it but obvi that doesnt make sense-->
+        <Label Text="Here is the first question. edit this" />
+        <Entry Text="{Binding Question1}" />
+        
+        <Label Text="Here is the second question. edit this" />
+        <Entry Text="{Binding Question2}" />
+
+        <Label Text="Here is the third question. edit this" />
+        <Entry Text="{Binding Question3}" />
+
+        <Label Text="Here is the journal entry. edit this" />
+        <Entry Text="{Binding JournalEntry}" />
+
+        <Label Text="Goals Met?" />
+        <Switch IsToggled="{Binding GoalsMet}" />
+
+        <Button Text="Save Entry" Clicked="OnSaveClicked" />
+        <!-- commenting this out because we dont need a delete entry button<Button Text="Delete"
+Clicked="OnDeleteClicked" />-->
+        <Button Text="Cancel" Clicked="OnCancelClicked" />
+    </StackLayout>
+</ContentPage>
