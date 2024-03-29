@@ -82,7 +82,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
 
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Label Text="Did you meet yesterday's Goals?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Switch IsToggled="{Binding GoalsMet}" TextColor="Black"/>
+                <Switch IsToggled="{Binding GoalsMet}"/>
             </StackLayout>
 
             <Image Source="Divider"/>

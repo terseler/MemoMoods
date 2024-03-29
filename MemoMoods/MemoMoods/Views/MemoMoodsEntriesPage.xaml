@@ -5,7 +5,7 @@ x:Class="MemoMoods.Views.MemoMoodsEntriesPage"
 Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White">
     <StackLayout>
         
-        <Image Source="Banner0.png"></Image>
+        <Image Source="Banner4.png"></Image>
 
         <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
             <Image Source="MemoStreak" WidthRequest="150"/>
@@ -18,7 +18,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
-                            <Image Source="0"/>
+                            <Image Source="Mood0"/>
                             <Label Text="{Binding CowMood}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                             <Label Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                             <Label Text="{Binding Question2}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
