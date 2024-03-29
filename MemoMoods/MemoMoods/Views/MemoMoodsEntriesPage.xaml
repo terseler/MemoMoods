@@ -29,7 +29,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
                         <StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">
 
                             <Image Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" HorizontalOptions="Start" HeightRequest="75"/>
-                            <Label Text="3/28/24" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Text="{Binding FormattedDate}" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Image Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="40" HorizontalOptions="Start"/>
                             <Label Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="20" TextColor="#674ea7" FontAttributes="Bold"/>
                         </StackLayout>
