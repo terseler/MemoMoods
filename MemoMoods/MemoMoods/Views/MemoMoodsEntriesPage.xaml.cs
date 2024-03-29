@@ -1,5 +1,5 @@
 ﻿using System;
-using Android.Content.Res;
+using System.Globalization;
 using MemoMoods.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,6 +18,7 @@ namespace MemoMoods.Views
             base.OnAppearing();
             //TodoItemDatabase database = await TodoItemDatabase.Instance;
             listView.ItemsSource = await App.Database.GetItemsAsync();
+
         }
         async void OnItemAdded(object sender, EventArgs e)
         {
@@ -36,5 +37,6 @@ namespace MemoMoods.Views
                 });
             }
         }
-    }
+
+	}
 }

@@ -2,32 +2,105 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="MemoMoods.Views.MemoMoodsItemPage"
-Title="{Binding Name}">
-    <StackLayout Margin="20"
-VerticalOptions="StartAndExpand">
-        <Label Text="Which Cow Describes Your Mood?" />
-        <Entry Text="{Binding CowMood}" />
-        <!-- logan you're going to have to change up the binding here to work with images, 
-        CowMood is the entity in the table 0 - 5 for each cow. 
-        right now i have a Text field for it but obvi that doesnt make sense-->
-        <Label Text="Here is the first question. edit this" />
-        <Entry Text="{Binding Question1}" />
+Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" BackgroundImageSource="MoodBackground">
+    <ScrollView>
+        <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
+
+            <Frame BackgroundColor="#d9d2e9" Margin="0,0,0,20">
+                <Label Text="{Binding Question1}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
+            </Frame>
         
-        <Label Text="Here is the second question. edit this" />
-        <Entry Text="{Binding Question2}" />
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Label Text="Which" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,8"/>
+                <Image Source="Moo" WidthRequest="50"/>
+                <Label Text="describes your mood?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,8"/>
+            </StackLayout> 
 
-        <Label Text="Here is the third question. edit this" />
-        <Entry Text="{Binding Question3}" />
+            
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Image x:Name="Mood0" Source="Mood0" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+                <Image x:Name="Mood1" Source="Mood1" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+                <Image x:Name="Mood2" Source="Mood2" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
 
-        <Label Text="Here is the journal entry. edit this" />
-        <Entry Text="{Binding JournalEntry}" />
+            <StackLayout Orientation="Horizontal" Margin="15,-20,10,10">
+                <Button x:Name="Button0" Text="Upset" WidthRequest="100" TextColor="#351c75" BackgroundColor="#f4cccc" HorizontalOptions="CenterAndExpand" Clicked="Clicked0"/>
+                <Button x:Name="Button1" Text="Nervous" WidthRequest="100" TextColor="#351c75" BackgroundColor="#fce5cd" HorizontalOptions="CenterAndExpand" Clicked="Clicked1"/>
+                <Button x:Name="Button2" Text="Happy" WidthRequest="100" TextColor="#351c75" BackgroundColor="#fff2cc" HorizontalOptions="CenterAndExpand" Clicked="Clicked2"/>
+            </StackLayout>
+        
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Image x:Name="Mood3" Source="Mood3" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+                <Image x:Name="Mood4" Source="Mood4" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+                <Image x:Name="Mood5" Source="Mood5" WidthRequest="100" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
 
-        <Label Text="Goals Met?" />
-        <Switch IsToggled="{Binding GoalsMet}" />
+            <StackLayout Orientation="Horizontal" Margin="15,-20,10,0">
+                <Button x:Name="Button3" Text="Content" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9ead3" HorizontalOptions="CenterAndExpand" Clicked="Clicked3"/>
+                <Button x:Name="Button4" Text="Sad" WidthRequest="100" TextColor="#351c75" BackgroundColor="#c9daf8" HorizontalOptions="CenterAndExpand" Clicked="Clicked4"/>
+                <Button x:Name="Button5" Text="Tired" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9d2e9" HorizontalOptions="CenterAndExpand" Clicked="Clicked5"/>
+            </StackLayout>
 
-        <Button Text="Save Entry" Clicked="OnSaveClicked" />
-        <!-- commenting this out because we dont need a delete entry button<Button Text="Delete"
-Clicked="OnDeleteClicked" />-->
-        <Button Text="Cancel" Clicked="OnCancelClicked" />
-    </StackLayout>
+            <Image x:Name="MoodText" WidthRequest="175"/>
+
+            <Image Source="Divider"/>
+
+            <!-- logan you're going to have to change up the binding here to work with images, 
+            CowMood is the entity in the table 0 - 5 for each cow. 
+            right now i have a Text field for it but obvi that doesnt make sense-->
+
+            <StackLayout Orientation="Vertical" Margin="15,20,10,10">
+                <Label Text="How would you title your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Entry Text="{Binding Question1}" TextColor="Black"/>
+            </StackLayout>
+            
+            <Image Source="Divider"/>
+
+            <StackLayout Orientation="Vertical" Margin="15,20,10,10">
+                <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Entry Text="{Binding Question2}" TextColor="Black"/>
+            </StackLayout>
+
+            <Image Source="Divider"/>
+
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,0">
+                <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                <Image Source="Goals" WidthRequest="70"/>
+                <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            </StackLayout>
+
+            <Image Source="Divider"/>
+
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
+                <Image Source="Quote" WidthRequest="20"/>
+                <Label Text="Hello, this is a test for the goals of yesterday" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                <Image Source="Quote" WidthRequest="20"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Label Text="Did you meet yesterday's Goals?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Switch IsToggled="{Binding GoalsMet}"/>
+            </StackLayout>
+
+            <Image Source="Divider"/>
+
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
+                <Image Source="Journal" WidthRequest="30"/>
+                <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Entry Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            </StackLayout>
+
+            <Image Source="Divider"/>
+
+            <Button Text="Save Entry" Clicked="OnSaveClicked" CornerRadius="15" Margin="40,20,40,5" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#b7e3a3" FontSize="20" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Cancel" Clicked="OnCancelClicked" CornerRadius="15" Margin="60,0,60,0" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#fcd4d4" FontSize="20"/>
+            <BoxView BackgroundColor="White"></BoxView>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
