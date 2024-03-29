@@ -7,7 +7,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
         <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
 
             <Frame BackgroundColor="#d9d2e9" Margin="0,0,0,20">
-                <Label Text="Title" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
+                <Label Text="{Binding Question1}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
             </Frame>
         
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
@@ -50,7 +50,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
             right now i have a Text field for it but obvi that doesnt make sense-->
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="Here is the first question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Label Text="How would you title your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
                 <Entry Text="{Binding Question1}" TextColor="Black"/>
             </StackLayout>
             

@@ -38,6 +38,9 @@ namespace MemoMoods.Views
 		{
 			MoodSelected = true;
 
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 0;
+
 			Mood0.WidthRequest = 200;
 			Mood1.IsVisible = false;
             Mood2.IsVisible = false;
@@ -60,6 +63,9 @@ namespace MemoMoods.Views
 		{
 			MoodSelected = true;
 
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 1;
+
 			Mood0.IsVisible = false;
 			Mood1.WidthRequest = 200;
 			Mood2.IsVisible = false;
@@ -80,6 +86,9 @@ namespace MemoMoods.Views
 		void Clicked2(object sender, EventArgs e)
 		{
 			MoodSelected = true;
+
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 2;
 
 			Mood0.IsVisible = false;
 			Mood1.IsVisible = false;
@@ -102,6 +111,9 @@ namespace MemoMoods.Views
 		{
 			MoodSelected = true;
 
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 3;
+
 			Mood0.IsVisible = false;
 			Mood1.IsVisible = false;
 			Mood2.IsVisible = false;
@@ -123,6 +135,9 @@ namespace MemoMoods.Views
 		{
 			MoodSelected = true;
 
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 4;
+
 			Mood0.IsVisible = false;
 			Mood1.IsVisible = false;
 			Mood2.IsVisible = false;
@@ -143,6 +158,9 @@ namespace MemoMoods.Views
 		void Clicked5(object sender, EventArgs e)
 		{
 			MoodSelected = true;
+
+			var memoMoodsItem = (MemoMoodsItem)BindingContext;
+			memoMoodsItem.CowMood = 5;
 
 			Mood0.IsVisible = false;
 			Mood1.IsVisible = false;
