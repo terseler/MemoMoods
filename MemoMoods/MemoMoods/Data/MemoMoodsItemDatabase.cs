@@ -41,6 +41,14 @@ namespace MemoMoods.Data
         public Task<int> DeleteItemAsync(MemoMoodsItem item)
         {
             return _database.DeleteAsync(item);
-        } 
+        }
+
+        // if question 3 does not exist for the specific id, this task will return an empty list
+
+        public Task<List<MemoMoodsItem>> GetQuestion3Async(int id)
+        {
+            return _database.QueryAsync<MemoMoodsItem>("SELECT * FROM [MemoMoodsItem] WHERE [Id] = @Id AND [Question3] IS NOT NULL", new { Id = id });
+        }
+
     }
 }
