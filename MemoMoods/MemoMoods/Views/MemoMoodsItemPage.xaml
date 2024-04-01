@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="MemoMoods.Views.MemoMoodsItemPage"
-Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" BackgroundImageSource="MoodBackground">
+Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" BackgroundImageSource="MoodBackground">
     <ScrollView>
         <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
 
             <Frame BackgroundColor="#d9d2e9" Margin="0,0,0,20">
-                <Label Text="{Binding Question1}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
+                <Label Text="{Binding FormattedDate}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
             </Frame>
         
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
@@ -41,19 +41,19 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
                 <Button x:Name="Button5" Text="Tired" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9d2e9" HorizontalOptions="CenterAndExpand" Clicked="Clicked5"/>
             </StackLayout>
 
-            <Image x:Name="MoodText" WidthRequest="175"/>
+            <Image x:Name="MoodText" WidthRequest="175" Margin="0,-15,0,0"/>
 
             <Image Source="Divider"/>
 
-            <!-- logan you're going to have to change up the binding here to work with images, 
-            CowMood is the entity in the table 0 - 5 for each cow. 
-            right now i have a Text field for it but obvi that doesnt make sense-->
-
-            <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="How would you title your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Entry Text="{Binding Question1}" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
+                <Label Text="How would you" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-3"/>
+                <Image Source="Title" WidthRequest="50"/>
+                <Label Text="your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"  Margin="0,0,0,-3"/>
             </StackLayout>
-            
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                <Entry x:Name="DayTitle" Text="{Binding Question1}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            </StackLayout>
+
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
@@ -64,9 +64,9 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,0">
-                <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-2"/>
                 <Image Source="Goals" WidthRequest="70"/>
-                <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-2"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
@@ -97,6 +97,7 @@ Title="{Binding Name}" NavigationPage.HasNavigationBar="false" BackgroundColor="
 
             <Image Source="Divider"/>
 
+            <Label x:Name="Error" Text="" FontAttributes="Italic" TextColor="#751c1c" FontSize="18" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,0,-15"/>
             <Button Text="Save Entry" Clicked="OnSaveClicked" CornerRadius="15" Margin="40,20,40,5" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#b7e3a3" FontSize="20" HorizontalOptions="FillAndExpand"/>
             <Button Text="Cancel" Clicked="OnCancelClicked" CornerRadius="15" Margin="60,0,60,0" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#fcd4d4" FontSize="20"/>
             <BoxView BackgroundColor="White"></BoxView>

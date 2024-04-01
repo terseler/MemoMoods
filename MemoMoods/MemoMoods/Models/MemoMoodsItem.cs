@@ -26,5 +26,6 @@ namespace MemoMoods.Models
         {
             get { return Date.ToString("MM-dd-yy"); } 
         }
-    }
+
+	}
 }
