@@ -16,6 +16,7 @@ namespace MemoMoods.Models
         public string Question3 { get; set; }
         public string JournalEntry {  get; set; }
         public bool GoalsMet { get; set; }
+        public bool PreviousItemHasGoals { get; set; }
 
         public MemoMoodsItem()
         {

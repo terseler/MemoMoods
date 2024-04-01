@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using MemoMoods.Models;
 using Xamarin.Forms;
@@ -22,6 +23,7 @@ namespace MemoMoods.Views
         }
         async void OnItemAdded(object sender, EventArgs e)
         {
+            
             await Navigation.PushAsync(new MemoMoodsItemPage
             {
                 BindingContext = new MemoMoodsItem()
@@ -31,12 +33,34 @@ namespace MemoMoods.Views
         {
             if (e.SelectedItem != null)
             {
+                var memoMoodsItem = e.SelectedItem as MemoMoodsItem;
+                ChangeVisibilityOfGoalsSection(memoMoodsItem);
+
                 await Navigation.PushAsync(new MemoMoodsReviewPage
                 {
                     BindingContext = e.SelectedItem as MemoMoodsItem
+                    
                 });
+                
             }
         }
 
-	}
+        async void ChangeVisibilityOfGoalsSection(MemoMoodsItem currentItem)
+        {
+
+            var previousItem = await App.Database.GetItemAsync(currentItem.ID - 1);
+
+            if (previousItem.Question3 != null)
+            {
+                currentItem.PreviousItemHasGoals = true;
+
+            }
+            else
+            {
+                currentItem.PreviousItemHasGoals = false;
+
+            }
+        }
+
+    }
 }
