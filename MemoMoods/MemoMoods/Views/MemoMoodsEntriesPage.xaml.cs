@@ -31,7 +31,7 @@ namespace MemoMoods.Views
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new MemoMoodsItemPage
+                await Navigation.PushAsync(new MemoMoodsReviewPage
                 {
                     BindingContext = e.SelectedItem as MemoMoodsItem
                 });

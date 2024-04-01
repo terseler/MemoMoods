@@ -22,10 +22,23 @@ namespace MemoMoods.Views
         {
             if (MoodSelected == true)
             {
-				var memoMoodsItem = (MemoMoodsItem)BindingContext;
-				// TodoItemDatabase database = await TodoItemDatabase.Instance;
-				await App.Database.SaveItemAsync(memoMoodsItem);
-				await Navigation.PopAsync();
+				Error.Text = "";
+
+				if(DayTitle.Text != null && DayTitle.Text.Length >= 0 )
+				{
+					var memoMoodsItem = (MemoMoodsItem)BindingContext;
+					// TodoItemDatabase database = await TodoItemDatabase.Instance;
+					await App.Database.SaveItemAsync(memoMoodsItem);
+					await Navigation.PopAsync();
+				}
+				else
+				{
+					Error.Text = "Please Select Day Title!";
+				}
+			}
+			else
+			{
+				Error.Text = "Please Select Mood!";
 			}
         }
 
@@ -55,8 +68,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-            MoodText.Source = "TextUpset";
-			MoodText.WidthRequest = 150;
+            MoodText.Source = "Text0";
 		}
 
 		void Clicked1(object sender, EventArgs e)
@@ -80,8 +92,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-			MoodText.Source = "TextNervous";
-			MoodText.WidthRequest = 200;
+			MoodText.Source = "Text1";
 		}
 		void Clicked2(object sender, EventArgs e)
 		{
@@ -104,8 +115,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-			MoodText.Source = "TextHappy";
-			MoodText.WidthRequest = 175;
+			MoodText.Source = "Text2";
 		}
 		void Clicked3(object sender, EventArgs e)
 		{
@@ -128,8 +138,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-			MoodText.Source = "TextContent";
-			MoodText.WidthRequest = 175;
+			MoodText.Source = "Text3";
 		}
 		void Clicked4(object sender, EventArgs e)
 		{
@@ -152,8 +161,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-			MoodText.Source = "TextSad";
-			MoodText.WidthRequest = 100;
+			MoodText.Source = "Text4";
 		}
 		void Clicked5(object sender, EventArgs e)
 		{
@@ -176,8 +184,7 @@ namespace MemoMoods.Views
 			Button4.IsVisible = false;
 			Button5.IsVisible = false;
 
-			MoodText.Source = "TextTired";
-			MoodText.WidthRequest = 150;
+			MoodText.Source = "Text5";
 		}
 	}
 }

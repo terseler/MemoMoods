@@ -17,7 +17,7 @@ namespace MemoMoods.Data
         }
         public Task<List<MemoMoodsItem>> GetItemsAsync()
         {
-            return _database.Table<MemoMoodsItem>().ToListAsync();
+            return _database.Table<MemoMoodsItem>().OrderByDescending(item => item.ID).ToListAsync();
         }
         public Task<List<MemoMoodsItem>> GetItemsNotDoneAsync()
         {
