@@ -17,7 +17,26 @@ namespace MemoMoods.Views
         public MemoMoodsItemPage()
         {
             InitializeComponent();
+			SetGoalSectionVisibilty();
         }
+
+		async void SetGoalSectionVisibilty()
+		{
+            List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
+            var lastItem = memoMoodsItems[0];
+            
+            if (lastItem.Question3 != null)
+			{
+				GoalQuote.IsVisible = true;
+				YesterdaysGoalQuestion.IsVisible = true;
+
+            } else
+			{
+                GoalQuote.IsVisible = false;
+                YesterdaysGoalQuestion.IsVisible = false;
+            }
+		}
+
         async void OnSaveClicked(object sender, EventArgs e)
         {
             if (MoodSelected == true)

@@ -23,12 +23,12 @@ namespace MemoMoods.Views
         }
         async void OnItemAdded(object sender, EventArgs e)
         {
-            
             await Navigation.PushAsync(new MemoMoodsItemPage
             {
                 BindingContext = new MemoMoodsItem()
             });
         }
+
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
@@ -47,18 +47,15 @@ namespace MemoMoods.Views
 
         async void ChangeVisibilityOfGoalsSection(MemoMoodsItem currentItem)
         {
-
             var previousItem = await App.Database.GetItemAsync(currentItem.ID - 1);
 
             if (previousItem.Question3 != null)
             {
                 currentItem.PreviousItemHasGoals = true;
-
             }
             else
             {
                 currentItem.PreviousItemHasGoals = false;
-
             }
         }
 
