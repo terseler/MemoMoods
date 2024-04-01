@@ -12,8 +12,9 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
             <local:MoodToColorConverter x:Key="MoodToColorConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ScrollView>
+        
         <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
             
             <BoxView BackgroundColor="#d9d2e9" Margin="0,0,0,-10"></BoxView>
@@ -24,7 +25,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                     <Label Text="{Binding Question1}" FontSize="20" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Start" Padding="10"></Label>
                 </StackLayout>
             </Frame>
-
+            
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Label Text="Your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,8"/>
                 <Image Source="Moo" WidthRequest="50"/>
@@ -38,9 +39,12 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
 
             <Image Source="Divider"/>
 
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,-10">
+                <Label Text="Day's" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Image Source="Title" WidthRequest="50"/>
+            </StackLayout>
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="How would you title your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Label Text="{Binding Question1}" TextColor="Black"/>
+                <Label Text="{Binding Question1}" FontSize="20" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -52,14 +56,12 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
 
             <Image Source="Divider"/>
 
-            <StackLayout Orientation="Horizontal" Margin="15,20,10,0">
-                <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
-                <Image Source="Goals" WidthRequest="70"/>
-                <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
+                <Label Text="Day's" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Image Source="Goals" WidthRequest="65"/>
             </StackLayout>
-            
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Label Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,-10">
+                <Label Text="{Binding Question3}" FontSize="20" TextColor="Black"/>
             </StackLayout>
 
             <Image Source="Divider"/>
