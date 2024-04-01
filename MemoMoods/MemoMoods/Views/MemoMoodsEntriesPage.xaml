@@ -47,9 +47,9 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
                                     <!--<StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">-->
                                     <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" HorizontalOptions="Start" HeightRequest="75"/>
                                     <Image Grid.Row="1" Grid.Column="1" Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="35" HorizontalOptions="Start" Margin="-40,0,0,0"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding FormattedDate}" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" FontSize="20" TextColor="#674ea7"/>
-                                    <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Source="ShortDivider" Margin="0,0,0,0"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="20" TextColor="#674ea7" LineBreakMode="TailTruncation" MaxLines="2" Margin="0,-15,0,0"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding FormattedDate}" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#674ea7"/>
+                                    <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Source="DividerShort" Margin="0,0,0,0"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="18" TextColor="#674ea7" LineBreakMode="TailTruncation" MaxLines="2" Margin="0,-15,0,0"/>
                                     <!--</StackLayout>-->
 
                                 </Grid>

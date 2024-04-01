@@ -41,7 +41,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Button x:Name="Button5" Text="Tired" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9d2e9" HorizontalOptions="CenterAndExpand" Clicked="Clicked5"/>
             </StackLayout>
 
-            <Image x:Name="MoodText" WidthRequest="175" Margin="0,-15,0,0"/>
+            <Image x:Name="MoodText" WidthRequest="175" Margin="0,0,0,10"/>
 
             <Image Source="Divider"/>
 
@@ -74,7 +74,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
 
             <Image Source="Divider"/>
 
-            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
+            <StackLayout Orientation="Horizontal" Margin="15,20,15,10">
                 <Image Source="Quote" WidthRequest="20"/>
                 <Label Text="Hello, this is a test for the goals of yesterday" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
                 <Image Source="Quote" WidthRequest="20"/>
