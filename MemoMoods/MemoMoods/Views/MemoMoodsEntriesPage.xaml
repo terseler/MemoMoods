@@ -15,7 +15,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
     
     <StackLayout>
         
-        <Image Source="Banner4.png"></Image>
+        <Image Source="Banner3.png"></Image>
 
         <StackLayout Orientation="Horizontal" Margin="15,0,15,-7" BackgroundColor="Transparent">
             <Image Source="MemoStreak" WidthRequest="150"/>
@@ -24,26 +24,45 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
         
         <Image Source="DividerTitle" Margin="0,0,0,0"/>
 
-        <ListView x:Name="listView" Margin="0,0,0,0" RowHeight="100" ItemSelected="OnListItemSelected">
+        <Label Text="Most Recent" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#bbb2cf" Margin="10,0,0,0" />
+
+        <ListView x:Name="listView" Margin="10,0,10,-200" RowHeight="100" ItemSelected="OnListItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Frame BackgroundColor="{Binding CowMood, Converter={StaticResource MoodToColorConverter}}" BorderColor="#d3cce3" CornerRadius="5" Padding="10" HasShadow="True" >
-                            <StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">
-                                <Image Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" HorizontalOptions="Start" HeightRequest="75"/>
-                                <Label Text="{Binding FormattedDate}" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" FontSize="20" TextColor="#674ea7"/>
-                                <Image Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="30" HorizontalOptions="Start" Margin="-5,0,-5,0"/>
-                                <Label Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="20" TextColor="#674ea7" LineBreakMode="TailTruncation" MaxLines="2"/>
-                            </StackLayout>
+                            <Frame HasShadow="False" Padding="2">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1.5*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<StackLayout Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White">-->
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" HorizontalOptions="Start" HeightRequest="75"/>
+                                    <Image Grid.Row="1" Grid.Column="1" Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="35" HorizontalOptions="Start" Margin="-40,0,0,0"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding FormattedDate}" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#674ea7"/>
+                                    <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Source="DividerShort" Margin="0,0,0,0"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Question1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="18" TextColor="#674ea7" LineBreakMode="TailTruncation" MaxLines="2" Margin="0,-15,0,0"/>
+                                    <!--</StackLayout>-->
+
+                                </Grid>
+                            </Frame>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackLayout BackgroundColor="Transparent">
-            <Button Text="+" TextColor="#351c75" FontSize="50" CornerRadius="15" BackgroundColor="#d9d2e9" Margin="0,0,20,20" Clicked="OnItemAdded" HorizontalOptions="End"></Button>
-        </StackLayout>
+        <Button BorderColor="#351c75" BorderWidth="2" Text="+" TextColor="#351c75" FontSize="50" CornerRadius="15" BackgroundColor="#d9d2e9" Margin="0,0,20,20" Clicked="OnItemAdded" HorizontalOptions="End" ></Button>
 
     </StackLayout>
 </ContentPage>

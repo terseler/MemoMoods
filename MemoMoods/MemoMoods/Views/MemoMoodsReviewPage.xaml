@@ -3,7 +3,7 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="MemoMoods.Views.MemoMoodsReviewPage"
 xmlns:local="clr-namespace:MemoMoods.Views"
-Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" BackgroundImageSource="MoodBackground">
+Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="{Binding CowMood, Converter={StaticResource MoodToColorConverter}}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -12,84 +12,88 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
             <local:MoodToColorConverter x:Key="MoodToColorConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ScrollView>
-        <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
-            
-            <BoxView BackgroundColor="#d9d2e9" Margin="0,0,0,-10"></BoxView>
+        <Frame HasShadow="True" Margin="25,0,25,0" BorderColor="#674ea7" Padding="-10">
+            <StackLayout Margin="25,0,25,0" VerticalOptions="StartAndExpand" BackgroundColor="White" >
 
-            <Frame BackgroundColor="{Binding CowMood, Converter={StaticResource MoodToColorConverter}}" Margin="0,0,0,20" Padding="10" BorderColor="#674ea7" CornerRadius="5" HasShadow="True">
-                <StackLayout BackgroundColor="White">
-                    <Label Text="{Binding FormattedDate}" FontAttributes="Bold" FontSize="20" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Start" Margin="10,10,0,-10"></Label>
-                    <Label Text="{Binding Question1}" FontSize="20" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Start" Padding="10"></Label>
+                <Frame BackgroundColor="{Binding CowMood, Converter={StaticResource MoodToColorConverter}}" Margin="0,25,0,20" Padding="20" BorderColor="#674ea7" CornerRadius="5" HasShadow="False">
+                    <Frame BackgroundColor="White" HasShadow="True">
+                        <Label Text="{Binding FormattedDate}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center" Padding="-8"></Label>
+                    </Frame>
+                </Frame>
+
+                <Image Source="DividerBot"/>
+
+                <StackLayout Orientation="Horizontal" Margin="15,10,10,10" HorizontalOptions="Center">
+                    <Label Text="Your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,8"/>
+                    <Image Source="Moo" WidthRequest="50"/>
                 </StackLayout>
-            </Frame>
 
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Label Text="Your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,8"/>
-                <Image Source="Moo" WidthRequest="50"/>
+                <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
+                    <Image x:Name="Mood0" Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" WidthRequest="200" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <Image x:Name="MoodText" Source="{Binding CowMood, Converter={StaticResource MoodToTextConverter}}" WidthRequest="175" Margin="0,0,0,10"/>
+
+                <Image Source="DividerTop"/>
+
+                <StackLayout Orientation="Horizontal" Margin="15,10,10,-10" HorizontalOptions="Center">
+                    <Label Text="Today's" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                    <Image Source="Title" WidthRequest="50"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Margin="15,20,10,20" HorizontalOptions="Center">
+                    <Label Text="{Binding Question1}" FontSize="20" TextColor="Black"/>
+                </StackLayout>
+
+                <Image Source="DividerBot"/>
+
+                <StackLayout Orientation="Vertical" Margin="15,10,10,20" HorizontalOptions="Center">
+                    <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding Question2}" TextColor="Black"/>
+                </StackLayout>
+
+                <Image Source="DividerTop"/>
+
+                <StackLayout Orientation="Horizontal" Margin="15,10,10,10" HorizontalOptions="Center">
+                    <Label Text="Tomorrow's" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                    <Image Source="Goals" WidthRequest="65"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15,0,10,20" HorizontalOptions="Center">
+                    <Label Text="{Binding Question3}" FontSize="20" TextColor="Black"/>
+                </StackLayout>
+
+                <Image Source="DividerBot"/>
+          
+                <StackLayout Orientation="Vertical" Margin="15,10,10,10" HorizontalOptions="Center">
+                    <Label Text="Yesterday's Goals" TextColor="#674ea7" FontAttributes="Bold" FontSize="18"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15,0,15,10">
+                    <Image Source="Quote" WidthRequest="20"/>
+                    <Label Text="Hello, this is a test for the goals of yesterday" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                    <Image Source="Quote" WidthRequest="20"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15,10,10,20" HorizontalOptions="Center">
+                    <Image Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="40" />
+                    <Label Text="Met!" IsVisible="{Binding GoalsMet}" TextColor="Black" FontSize="20" Margin="0,5,0,0"/>
+                </StackLayout>
+
+                <Image Source="DividerTop"/>
+
+                <StackLayout Orientation="Horizontal" Margin="15,10,10,10" HorizontalOptions="Center">
+                    <Image Source="Journal" WidthRequest="30"/>
+                    <Label Text="Journal" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15,0,10,20" HorizontalOptions="Center">
+                    <Label Text="{Binding JournalEntry}" TextColor="Black"/>
+                </StackLayout>
+
+                <Image Source="DividerBot"/>
+
+                <Button Text="Back" Clicked="OnBackClicked" CornerRadius="15" Margin="60,0,60,0" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#fcd4d4" FontSize="20"/>
+                <BoxView BackgroundColor="White"></BoxView>
+
             </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Image x:Name="Mood0" Source="{Binding CowMood, Converter={StaticResource MoodToImageConverter}}" WidthRequest="200" HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
-
-            <Image x:Name="MoodText" Source="{Binding CowMood, Converter={StaticResource MoodToTextConverter}}" WidthRequest="175" Margin="0,-15,0,0"/>
-
-            <Image Source="Divider"/>
-
-            <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="How would you title your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Label Text="{Binding Question1}" TextColor="Black"/>
-            </StackLayout>
-
-            <Image Source="Divider"/>
-
-            <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Label Text="{Binding Question2}" TextColor="Black"/>
-            </StackLayout>
-
-            <Image Source="Divider"/>
-
-            <StackLayout Orientation="Horizontal" Margin="15,20,10,0">
-                <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
-                <Image Source="Goals" WidthRequest="70"/>
-                <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
-            </StackLayout>
-            
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Label Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
-            </StackLayout>
-
-            <Image Source="Divider"/>
-
-            <StackLayout IsVisible="{Binding PreviousItemHasGoals}" Orientation="Horizontal" Margin="15,20,10,10">
-                <Image Source="Quote" WidthRequest="20"/>
-                <Label Text="Hello, this is a test for the goals of yesterday" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
-                <Image Source="Quote" WidthRequest="20"/>
-            </StackLayout>
-
-            <StackLayout IsVisible="{Binding PreviousItemHasGoals}" Orientation="Horizontal" Margin="15,0,10,10">
-                <Label Text="Did you meet yesterday's Goals?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Image Source="Star" IsVisible="{Binding PreviousItemHasGoals}" WidthRequest="40" HorizontalOptions="Start"/>
-            </StackLayout>
-
-            <Image Source="Divider"/>
-
-            <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
-                <Image Source="Journal" WidthRequest="30"/>
-                <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Label Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
-            </StackLayout>
-
-            <Image Source="Divider"/>
-
-            <Button Text="Back" Clicked="OnBackClicked" CornerRadius="15" Margin="60,0,60,0" TextColor="#351c75" FontAttributes="Bold" BackgroundColor="#fcd4d4" FontSize="20"/>
-            <BoxView BackgroundColor="White"></BoxView>
-
-        </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

@@ -41,7 +41,9 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Button x:Name="Button5" Text="Tired" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9d2e9" HorizontalOptions="CenterAndExpand" Clicked="Clicked5"/>
             </StackLayout>
 
-            <Image x:Name="MoodText" WidthRequest="175" Margin="0,-15,0,0"/>
+            <StackLayout>
+                <Image x:Name="MoodText" WidthRequest="175" Margin="0,0,0,10"/>
+            </StackLayout>
 
             <Image Source="Divider"/>
 
@@ -50,26 +52,28 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Image Source="Title" WidthRequest="50"/>
                 <Label Text="your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"  Margin="0,0,0,-3"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry x:Name="DayTitle" Text="{Binding Question1}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                <Entry x:Name="DayTitle" TextColor="Black" Text="{Binding Question1}" Placeholder="Title" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
                 <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Entry Text="{Binding Question2}" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                <Entry Text="{Binding Question2}" TextColor="Black" Placeholder="Question" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,0">
                 <Label Text="What are your" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-2"/>
-                <Image Source="Goals" WidthRequest="70"/>
+                <Image Source="Goals" WidthRequest="65"/>
                 <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-2"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                        <Entry Text="{Binding Question3}" TextColor="Black" Placeholder="Goals" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -89,7 +93,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
                 <Image Source="Journal" WidthRequest="30"/>
-                <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Label Text="Journal" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Entry Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
