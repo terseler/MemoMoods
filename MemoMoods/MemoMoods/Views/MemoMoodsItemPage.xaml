@@ -50,15 +50,17 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Image Source="Title" WidthRequest="50"/>
                 <Label Text="your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"  Margin="0,0,0,-3"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry x:Name="DayTitle" Text="{Binding Question1}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                <Entry x:Name="DayTitle" TextColor="Black" Text="{Binding Question1}" Placeholder="Title" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
                 <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
-                <Entry Text="{Binding Question2}" TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                <Entry Text="{Binding Question2}" TextColor="Black" Placeholder="Question" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
@@ -68,8 +70,8 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Image Source="Goals" WidthRequest="65"/>
                 <Label Text="for tomorrow?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-2"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
-                <Entry Text="{Binding Question3}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
+                        <Entry Text="{Binding Question3}" TextColor="Black" Placeholder="Goals" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <Image Source="Divider"/>
