@@ -82,7 +82,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="{Binding CowMo
 
             <StackLayout Orientation="Horizontal" Margin="15,10,10,10" HorizontalOptions="Center">
                 <Image Source="Journal" WidthRequest="30"/>
-                <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Label Text="Journal" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,20" HorizontalOptions="Center">
                 <Label Text="{Binding JournalEntry}" TextColor="Black"/>

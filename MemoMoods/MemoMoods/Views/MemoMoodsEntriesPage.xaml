@@ -3,7 +3,7 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="MemoMoods.Views.MemoMoodsEntriesPage"
 xmlns:local="clr-namespace:MemoMoods.Views"
-Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White">
+Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="Transparent">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,7 +15,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
     
     <StackLayout>
         
-        <Image Source="Banner4.png"></Image>
+        <Image Source="Banner3.png"></Image>
 
         <StackLayout Orientation="Horizontal" Margin="15,0,15,-7" BackgroundColor="Transparent">
             <Image Source="MemoStreak" WidthRequest="150"/>
@@ -24,7 +24,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
         
         <Image Source="DividerTitle" Margin="0,0,0,0"/>
 
-        <ListView x:Name="listView" Margin="0,0,0,0" RowHeight="100" ItemSelected="OnListItemSelected">
+        <ListView x:Name="listView" Margin="0,0,0,-200" RowHeight="100" ItemSelected="OnListItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -60,9 +60,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackLayout BackgroundColor="Transparent">
-            <Button Text="+" TextColor="#351c75" FontSize="50" CornerRadius="15" BackgroundColor="#d9d2e9" Margin="0,0,20,20" Clicked="OnItemAdded" HorizontalOptions="End"></Button>
-        </StackLayout>
+        <Button BorderColor="#351c75" BorderWidth="2" Text="+" TextColor="#351c75" FontSize="50" CornerRadius="15" BackgroundColor="#d9d2e9" Margin="0,0,20,20" Clicked="OnItemAdded" HorizontalOptions="End" ></Button>
 
     </StackLayout>
 </ContentPage>

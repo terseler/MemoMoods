@@ -89,7 +89,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
                 <Image Source="Journal" WidthRequest="30"/>
-                <Label Text="Jornual" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Label Text="Journal" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">
                 <Entry Text="{Binding JournalEntry}" HorizontalOptions="FillAndExpand" TextColor="Black"/>
