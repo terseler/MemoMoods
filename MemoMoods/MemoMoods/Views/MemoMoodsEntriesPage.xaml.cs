@@ -52,7 +52,9 @@ namespace MemoMoods.Views
             if (previousItem.Question3 != null)
             {
                 currentItem.PreviousItemHasGoals = true;
-            }
+                //MemoMoodsItemPage.GoalDivider.Source = "";
+
+			}
             else
             {
                 currentItem.PreviousItemHasGoals = false;

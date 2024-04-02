@@ -41,11 +41,12 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Button x:Name="Button5" Text="Tired" WidthRequest="100" TextColor="#351c75" BackgroundColor="#d9d2e9" HorizontalOptions="CenterAndExpand" Clicked="Clicked5"/>
             </StackLayout>
 
-            <StackLayout>
-                <Image x:Name="MoodText" WidthRequest="175" Margin="0,0,0,10"/>
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="MoodText" HorizontalOptions="CenterAndExpand" WidthRequest="175" Margin="40,-20,0,10"/>
+                <Button Text="back" x:Name="BackMood" TextColor="#351c75" FontAttributes="Bold" Clicked="BackMoodClicked" IsVisible="false" BackgroundColor="#d9d2e9" Margin="0,-20,0,10" WidthRequest="40" HorizontalOptions="End"/>
             </StackLayout>
 
-            <Image Source="Divider"/>
+            <Image Source="Divider" Margin="0,0,0,0"/>
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
                 <Label Text="How would you" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,-3"/>
@@ -83,13 +84,12 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
                 <Label x:Name="GoalQuoteLabel" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
                 <Image Source="Quote" WidthRequest="20"/>
             </StackLayout>
-
             <StackLayout x:Name="YesterdaysGoalQuestion" Orientation="Horizontal" Margin="15,0,10,10">
                 <Label Text="Did you meet yesterday's Goals?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
                 <Switch IsToggled="{Binding GoalsMet}"/>
             </StackLayout>
 
-            <Image Source="Divider"/>
+            <Image Source="Divider" x:Name="GoalDivider"/>
 
             <StackLayout Orientation="Horizontal" Margin="15,20,10,10">
                 <Image Source="Journal" WidthRequest="30"/>
