@@ -64,7 +64,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="{Binding CowMo
                 </StackLayout>
 
                 <Image Source="DividerBot"/>
-
+          
                 <StackLayout Orientation="Vertical" Margin="15,10,10,10" HorizontalOptions="Center">
                     <Label Text="Yesterday's Goals" TextColor="#674ea7" FontAttributes="Bold" FontSize="18"/>
                 </StackLayout>

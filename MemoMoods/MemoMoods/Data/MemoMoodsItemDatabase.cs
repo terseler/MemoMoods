@@ -41,6 +41,7 @@ namespace MemoMoods.Data
         public Task<int> DeleteItemAsync(MemoMoodsItem item)
         {
             return _database.DeleteAsync(item);
-        } 
+        }
+
     }
 }
