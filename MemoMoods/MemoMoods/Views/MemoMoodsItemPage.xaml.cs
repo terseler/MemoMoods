@@ -30,6 +30,8 @@ namespace MemoMoods.Views
 				GoalQuote.IsVisible = true;
 				YesterdaysGoalQuestion.IsVisible = true;
 
+				GoalQuoteLabel.Text = lastItem.Question3;
+
             } else
 			{
                 GoalQuote.IsVisible = false;
