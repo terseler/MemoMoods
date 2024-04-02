@@ -27,7 +27,7 @@ namespace MemoMoods.Views
 			}
 			else if((int)value == 4)
 			{
-				color = "#e9eef7";
+				color = "#edf0f5";
 			}
 			if ((int)value == 5)
 			{
