@@ -9,13 +9,14 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
         <ResourceDictionary>
             <local:MoodToImageConverter x:Key="MoodToImageConverter"/>
             <local:MoodToColorConverter x:Key="MoodToColorConverter"/>
+            <local:MoodToBannerConverter x:Key="MoodToBannerConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     
     <StackLayout>
-        
-        <Image Source="Banner3.png"></Image>
+
+        <Image Source="{Binding mostRecentMood, Converter={StaticResource MoodToBannerConverter}}"></Image>
 
         <StackLayout Orientation="Horizontal" Margin="15,0,15,-7" BackgroundColor="Transparent">
             <Image Source="MemoStreak" WidthRequest="150"/>
@@ -25,6 +26,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
         <Image Source="DividerTitle" Margin="0,0,0,0"/>
 
         <Label Text="Most Recent" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#bbb2cf" Margin="10,0,0,0" />
+        <Label Text="{Binding mostRecentMood}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#bbb2cf" Margin="10,0,0,0" />
 
         <ListView x:Name="listView" Margin="10,0,10,-200" RowHeight="100" ItemSelected="OnListItemSelected">
             <ListView.ItemTemplate>

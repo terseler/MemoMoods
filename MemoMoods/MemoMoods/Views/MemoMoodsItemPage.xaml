@@ -7,7 +7,10 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
         <StackLayout Margin="15,0,15,0" VerticalOptions="StartAndExpand" BackgroundColor="White">
 
             <Frame BackgroundColor="#d9d2e9" Margin="0,0,0,20">
-                <Label Text="{Binding FormattedDate}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center" HorizontalOptions="Center"></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="{Binding FormattedWeekday}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center"></Label>
+                    <Label Text="{Binding FormattedDate}" FontAttributes="Bold" FontSize="30" TextColor="#351c75" VerticalTextAlignment="Center"></Label>
+                </StackLayout>
             </Frame>
         
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10">

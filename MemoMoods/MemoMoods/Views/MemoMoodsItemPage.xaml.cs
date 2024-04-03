@@ -29,6 +29,7 @@ namespace MemoMoods.Views
 			{
 				GoalQuote.IsVisible = true;
 				YesterdaysGoalQuestion.IsVisible = true;
+				GoalDivider.IsVisible = true;
 
 				GoalQuoteLabel.Text = lastItem.Question3;
 
@@ -36,7 +37,8 @@ namespace MemoMoods.Views
 			{
                 GoalQuote.IsVisible = false;
                 YesterdaysGoalQuestion.IsVisible = false;
-            }
+				GoalDivider.IsVisible = false;
+			}
 		}
 
         async void OnSaveClicked(object sender, EventArgs e)
@@ -68,7 +70,12 @@ namespace MemoMoods.Views
             await Navigation.PopAsync();
         }
 
-        void Clicked0(object sender, EventArgs e)
+		public void ChangeGoalDivider(bool state)
+		{
+			GoalDivider.IsVisible = state;
+		}
+
+		void Clicked0(object sender, EventArgs e)
 		{
 			MoodSelected = true;
 

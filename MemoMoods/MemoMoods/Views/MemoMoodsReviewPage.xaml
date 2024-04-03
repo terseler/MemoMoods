@@ -64,21 +64,21 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="{Binding CowMo
                 </StackLayout>
 
                 <Image Source="DividerBot"/>
-          
-                <StackLayout Orientation="Vertical" Margin="15,10,10,10" HorizontalOptions="Center">
+
+                <StackLayout x:Name="GoalTitle" Orientation="Vertical" Margin="15,10,10,10" HorizontalOptions="Center">
                     <Label Text="Yesterday's Goals" TextColor="#674ea7" FontAttributes="Bold" FontSize="18"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="15,0,15,10">
+                <StackLayout x:Name="GoalQuote" Orientation="Horizontal" Margin="15,0,15,10">
                     <Image Source="Quote" WidthRequest="20"/>
-                    <Label Text="Hello, this is a test for the goals of yesterday" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
+                    <Label x:Name="GoalQuoteLabel" FontAttributes="Italic" TextColor="#351c75" FontSize="18" VerticalTextAlignment="Center" Margin="0,0,0,1"/>
                     <Image Source="Quote" WidthRequest="20"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="15,10,10,20" HorizontalOptions="Center">
+                <StackLayout x:Name="YesterdaysGoalQuestion" Orientation="Horizontal" Margin="15,10,10,20" HorizontalOptions="Center">
                     <Image Source="Star" IsVisible="{Binding GoalsMet}" WidthRequest="40" />
                     <Label Text="Met!" IsVisible="{Binding GoalsMet}" TextColor="Black" FontSize="20" Margin="0,5,0,0"/>
                 </StackLayout>
 
-                <Image Source="DividerTop"/>
+                <Image Source="DividerTop" x:Name="GoalDivider"/>
 
                 <StackLayout Orientation="Horizontal" Margin="15,10,10,10" HorizontalOptions="Center">
                     <Image Source="Journal" WidthRequest="30"/>
