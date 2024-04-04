@@ -36,6 +36,7 @@ namespace MemoMoods.Views
 			{
 				GoalQuote.IsVisible = true;
 				YesterdaysGoalQuestion.IsVisible = true;
+				GoalDivider.IsVisible = true;
 
 				GoalQuoteLabel.Text = lastItem.Question3;
 
@@ -43,7 +44,8 @@ namespace MemoMoods.Views
 			{
                 GoalQuote.IsVisible = false;
                 YesterdaysGoalQuestion.IsVisible = false;
-            }
+				GoalDivider.IsVisible = false;
+			}
 		}
 
         async void OnSaveClicked(object sender, EventArgs e)
@@ -77,7 +79,12 @@ namespace MemoMoods.Views
             await Navigation.PopAsync();
         }
 
-        void Clicked0(object sender, EventArgs e)
+		public void ChangeGoalDivider(bool state)
+		{
+			GoalDivider.IsVisible = state;
+		}
+
+		void Clicked0(object sender, EventArgs e)
 		{
 			MoodSelected = true;
 
@@ -99,6 +106,7 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
             MoodText.Source = "Text0";
+			BackMood.IsVisible = true;
 		}
 
 		void Clicked1(object sender, EventArgs e)
@@ -123,7 +131,9 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
 			MoodText.Source = "Text1";
+			BackMood.IsVisible = true;
 		}
+
 		void Clicked2(object sender, EventArgs e)
 		{
 			MoodSelected = true;
@@ -146,6 +156,7 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
 			MoodText.Source = "Text2";
+			BackMood.IsVisible = true;
 		}
 		void Clicked3(object sender, EventArgs e)
 		{
@@ -169,6 +180,7 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
 			MoodText.Source = "Text3";
+			BackMood.IsVisible = true;
 		}
 		void Clicked4(object sender, EventArgs e)
 		{
@@ -192,6 +204,7 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
 			MoodText.Source = "Text4";
+			BackMood.IsVisible = true;
 		}
 		void Clicked5(object sender, EventArgs e)
 		{
@@ -215,6 +228,36 @@ namespace MemoMoods.Views
 			Button5.IsVisible = false;
 
 			MoodText.Source = "Text5";
+			BackMood.IsVisible = true;
+		}
+
+		void BackMoodClicked(object sender, EventArgs e)
+		{
+			MoodSelected = false;
+
+			Mood0.IsVisible = true;
+			Mood1.IsVisible = true;
+			Mood2.IsVisible = true;
+			Mood3.IsVisible = true;
+			Mood4.IsVisible = true;
+			Mood5.IsVisible = true;
+
+			Mood0.WidthRequest = 100;
+			Mood1.WidthRequest = 100;
+			Mood2.WidthRequest = 100;
+			Mood3.WidthRequest = 100;
+			Mood4.WidthRequest = 100;
+			Mood5.WidthRequest = 100;
+
+			Button0.IsVisible = true;
+			Button1.IsVisible = true;
+			Button2.IsVisible = true;
+			Button3.IsVisible = true;
+			Button4.IsVisible = true;
+			Button5.IsVisible = true;
+
+			MoodText.Source = "";
+			BackMood.IsVisible = false;
 		}
 	}
 }

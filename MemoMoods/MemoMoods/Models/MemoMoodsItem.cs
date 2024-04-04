@@ -18,15 +18,19 @@ namespace MemoMoods.Models
         public bool GoalsMet { get; set; }
         public bool PreviousItemHasGoals { get; set; }
 
-        public MemoMoodsItem()
+		public MemoMoodsItem()
         {
             Date = DateTime.Now.Date;
-            
-        }
-        public string FormattedDate
+		}
+		public string FormattedDate
         {
             get { return Date.ToString("MM-dd-yy"); } 
         }
+
+		public string FormattedWeekday
+        {
+            get { return Date.ToString("ddd"); } 
+		}
 
 	}
 }

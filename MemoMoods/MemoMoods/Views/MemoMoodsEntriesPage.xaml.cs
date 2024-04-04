@@ -9,10 +9,19 @@ using Xamarin.Forms.Xaml;
 
 namespace MemoMoods.Views
 {
+
     public partial class MemoMoodsEntriesPage : ContentPage, INotifyPropertyChanged
     {
 
         private int _streakCount;
+        
+        public MemoMoodsEntriesPage()
+        {
+            InitializeComponent();
+            BindingContext = this;
+            StreakCount = StreakManager.GetStreakCount();
+            ChangeBannerBasedOnMood();
+        }
 
         public int StreakCount
         {
@@ -25,13 +34,6 @@ namespace MemoMoods.Views
                     OnPropertyChanged(nameof(StreakCount));
                 }
             }
-        }
-
-        public MemoMoodsEntriesPage()
-        {
-            InitializeComponent();
-            BindingContext = this;
-            StreakCount = StreakManager.GetStreakCount();
         }
 
         public void UpdateStreak(bool newItemSaved)
@@ -59,11 +61,13 @@ namespace MemoMoods.Views
         }
 
         protected override async void OnAppearing()
+
         {
             base.OnAppearing();
             //TodoItemDatabase database = await TodoItemDatabase.Instance;
             listView.ItemsSource = await App.Database.GetItemsAsync();
         }
+
         async void OnItemAdded(object sender, EventArgs e)
         {
             var memoMoodsItemPage = new MemoMoodsItemPage();
@@ -75,7 +79,11 @@ namespace MemoMoods.Views
             UpdateStreak(true);
         }
 
-        async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
+
+			ChangeBannerBasedOnMood();
+		}
+
+		async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
@@ -91,19 +99,48 @@ namespace MemoMoods.Views
             }
         }
 
-        async void ChangeVisibilityOfGoalsSection(MemoMoodsItem currentItem)
-        {
-            var previousItem = await App.Database.GetItemAsync(currentItem.ID - 1);
+		async void ChangeVisibilityOfGoalsSection(MemoMoodsItem currentItem)
+		{
+			var previousItem = await App.Database.GetItemAsync(currentItem.ID - 1);
 
-            if (previousItem.Question3 != null)
-            {
-                currentItem.PreviousItemHasGoals = true;
-            }
-            else
-            {
-                currentItem.PreviousItemHasGoals = false;
-            }
-        }
+			if (previousItem.Question3 != null)
+			{
+				currentItem.PreviousItemHasGoals = true;
 
-    }
+			}
+			else
+			{
+				currentItem.PreviousItemHasGoals = false;
+			}
+		}
+		public async void ChangeBannerBasedOnMood()
+		{
+			List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
+			var lastItem = memoMoodsItems[0];
+
+			mostRecentMood = lastItem.CowMood;
+		}
+
+		private int _mostRecentMood;
+
+
+		public int mostRecentMood
+		{
+			get { return _mostRecentMood; }
+			set
+			{
+				if (_mostRecentMood != value)
+				{
+					_mostRecentMood = value;
+					OnPropertyChanged(nameof(mostRecentMood));
+				}
+			}
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
 }
