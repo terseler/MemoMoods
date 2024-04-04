@@ -19,7 +19,7 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
 
         <StackLayout Orientation="Horizontal" Margin="15,0,15,-7" BackgroundColor="Transparent">
             <Image Source="MemoStreak" WidthRequest="150"/>
-            <Label Text="100" FontAttributes="Bold" FontSize="20" TextColor="#351c75" HorizontalOptions="Center"/>
+            <Label Text="{Binding StreakCount}" FontAttributes="Bold" FontSize="20" TextColor="#351c75" HorizontalOptions="Center"/>
         </StackLayout>
         
         <Image Source="DividerTitle" Margin="0,0,0,0"/>
