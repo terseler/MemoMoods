@@ -9,30 +9,76 @@ using Xamarin.Forms.Xaml;
 
 namespace MemoMoods.Views
 {
-    public partial class MemoMoodsEntriesPage : INotifyPropertyChanged
-	{
 
-		public MemoMoodsEntriesPage()
+    public partial class MemoMoodsEntriesPage : ContentPage, INotifyPropertyChanged
+    {
+
+        private int _streakCount;
+        
+        public MemoMoodsEntriesPage()
         {
             InitializeComponent();
+            BindingContext = this;
+            StreakCount = StreakManager.GetStreakCount();
             ChangeBannerBasedOnMood();
-			BindingContext = this;
-		}
+        }
 
-		protected override async void OnAppearing()
+        public int StreakCount
+        {
+            get { return _streakCount; }
+            set
+            {
+                if (_streakCount != value)
+                {
+                    _streakCount = value;
+                    OnPropertyChanged(nameof(StreakCount));
+                }
+            }
+        }
+
+        public void UpdateStreak(bool newItemSaved)
+        {
+
+            if (newItemSaved)
+            {
+                DateTime lastEntryDate = StreakManager.GetLastEntryDate();
+                if (lastEntryDate.Date != DateTime.Today)
+                {
+                    StreakManager.ResetStreakCount();
+                }
+
+                StreakManager.IncrementStreakCount();
+                StreakManager.SetLastEntryDate(DateTime.Today);
+                StreakCount = StreakManager.GetStreakCount();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected override async void OnAppearing()
+
         {
             base.OnAppearing();
             //TodoItemDatabase database = await TodoItemDatabase.Instance;
             listView.ItemsSource = await App.Database.GetItemsAsync();
-
         }
 
         async void OnItemAdded(object sender, EventArgs e)
         {
-			await Navigation.PushAsync(new MemoMoodsItemPage
+            var memoMoodsItemPage = new MemoMoodsItemPage();
+            memoMoodsItemPage.UpdateStreakRequested += (newItemSaved) => UpdateStreak(newItemSaved);
+            await Navigation.PushAsync(new MemoMoodsItemPage
             {
                 BindingContext = new MemoMoodsItem()
             });
+            UpdateStreak(true);
+        }
+
 
 			ChangeBannerBasedOnMood();
 		}

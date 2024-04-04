@@ -7,20 +7,27 @@ using MemoMoods.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MemoMoods.Models;
+using System.ComponentModel;
 
 
 namespace MemoMoods.Views
 {
-    public partial class MemoMoodsItemPage 
+    public partial class MemoMoodsItemPage
     {
         public bool MoodSelected = false;
+
+        public delegate void UpdateStreakDelegate(bool newItemSaved);
+        public event UpdateStreakDelegate UpdateStreakRequested;
+
+
         public MemoMoodsItemPage()
         {
             InitializeComponent();
 			SetGoalSectionVisibilty();
         }
 
-		async void SetGoalSectionVisibilty()
+
+        async void SetGoalSectionVisibilty()
 		{
             List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
             var lastItem = memoMoodsItems[0];
@@ -43,7 +50,7 @@ namespace MemoMoods.Views
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
-            if (MoodSelected == true)
+            if (MoodSelected)
             {
 				Error.Text = "";
 
@@ -52,9 +59,11 @@ namespace MemoMoods.Views
 					var memoMoodsItem = (MemoMoodsItem)BindingContext;
 					// TodoItemDatabase database = await TodoItemDatabase.Instance;
 					await App.Database.SaveItemAsync(memoMoodsItem);
-					await Navigation.PopAsync();
-				}
-				else
+                    UpdateStreakRequested?.Invoke(true);
+                    await Navigation.PopAsync();
+
+                }
+                else
 				{
 					Error.Text = "Please Select Day Title!";
 				}
