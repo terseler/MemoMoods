@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 
+
 namespace MemoMoods.Views
 {
 
@@ -62,15 +63,35 @@ namespace MemoMoods.Views
 
         async void OnItemAdded(object sender, EventArgs e)
         {
-            var memoMoodsItemPage = new MemoMoodsItemPage();
-            memoMoodsItemPage.UpdateStreakRequested += (newItemSaved) => UpdateStreak(newItemSaved);
-            await Navigation.PushAsync(new MemoMoodsItemPage
-            {
-                BindingContext = new MemoMoodsItem()
-            });
+            List<MemoMoodsItem> items = await App.Database.GetItemsAsync();
+            bool entryExistForToday = false;
+            DateTime today = DateTime.Now.Date;
 
-            UpdateStreak(true);
-			ChangeBannerBasedOnMood();
+            foreach (MemoMoodsItem item in items)
+            {
+                if (item.Date == today)
+                {
+                    entryExistForToday = true;
+                }
+            }
+
+            if (entryExistForToday == false)
+            {
+                var memoMoodsItemPage = new MemoMoodsItemPage();
+                memoMoodsItemPage.UpdateStreakRequested += (newItemSaved) => UpdateStreak(newItemSaved);
+                await Navigation.PushAsync(new MemoMoodsItemPage
+                {
+                    BindingContext = new MemoMoodsItem()
+                });
+
+                UpdateStreak(true);
+                ChangeBannerBasedOnMood();
+
+            } else
+            {
+                await DisplayAlert("Hold Up!", "You have already created an entry today!", "OK");
+            }
+                        
 		}
 
 		async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
