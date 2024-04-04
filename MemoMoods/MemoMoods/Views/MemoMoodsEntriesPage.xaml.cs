@@ -53,15 +53,7 @@ namespace MemoMoods.Views
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         protected override async void OnAppearing()
-
         {
             base.OnAppearing();
             //TodoItemDatabase database = await TodoItemDatabase.Instance;
@@ -76,10 +68,8 @@ namespace MemoMoods.Views
             {
                 BindingContext = new MemoMoodsItem()
             });
+
             UpdateStreak(true);
-        }
-
-
 			ChangeBannerBasedOnMood();
 		}
 
@@ -113,6 +103,7 @@ namespace MemoMoods.Views
 				currentItem.PreviousItemHasGoals = false;
 			}
 		}
+
 		public async void ChangeBannerBasedOnMood()
 		{
 			List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
@@ -142,5 +133,6 @@ namespace MemoMoods.Views
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+    
 	}
 }

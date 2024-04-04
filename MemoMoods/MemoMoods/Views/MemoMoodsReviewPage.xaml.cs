@@ -20,31 +20,6 @@ namespace MemoMoods.Views
 
 		}
 
-		/*async void SetGoalSectionVisibilty()
-		{
-			List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
-			var lastItem = memoMoodsItems[1];
-
-			if (lastItem.Question3 != null)
-			{
-				GoalTitle.IsVisible = true;
-				GoalQuote.IsVisible = true;
-				YesterdaysGoalQuestion.IsVisible = true;
-				GoalDivider.IsVisible = true;
-
-				GoalQuoteLabel.Text = lastItem.Question3;
-
-			}
-			else
-			{
-				GoalTitle.IsVisible = false;
-				GoalQuote.IsVisible = false;
-				YesterdaysGoalQuestion.IsVisible = false;
-				GoalDivider.IsVisible = false;
-			}
-		}*/
-
-
 		async void OnBackClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
