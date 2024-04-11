@@ -63,7 +63,7 @@ Title="" NavigationPage.HasNavigationBar="false" BackgroundColor="#d9d2e9" Backg
             <Image Source="Divider"/>
 
             <StackLayout Orientation="Vertical" Margin="15,20,10,10">
-                <Label Text="Here is the Second question. edit this" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
+                <Label Text="What was the highlight of your day?" TextColor="#674ea7" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="15,0,10,10" BackgroundColor="#f9f7fc">
                 <Entry Text="{Binding Question2}" TextColor="Black" Placeholder="Question" PlaceholderColor="#837d8a" HorizontalOptions="FillAndExpand"/>

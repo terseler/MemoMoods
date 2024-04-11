@@ -71,7 +71,9 @@ namespace MemoMoods.Views
             {
                 if (item.Date == today)
                 {
-                    entryExistForToday = true;
+                    //making it so that you can always make a new entry for submission
+                    //to make this functional again, set this boolean to true here
+                    entryExistForToday = false;
                 }
             }
 
