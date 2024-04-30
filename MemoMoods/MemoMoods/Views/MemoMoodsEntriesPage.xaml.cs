@@ -118,7 +118,7 @@ namespace MemoMoods.Views
 
 			if (previousItem != null && previousItem.Question3 != null)
 			{
-				currentItem.PreviousItemHasGoals = true
+                currentItem.PreviousItemHasGoals = true;
 			}
 			else
 			{
