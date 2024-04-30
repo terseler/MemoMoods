@@ -116,10 +116,9 @@ namespace MemoMoods.Views
 		{
 			var previousItem = await App.Database.GetItemAsync(currentItem.ID - 1);
 
-			if (previousItem.Question3 != null)
+			if (previousItem != null && previousItem.Question3 != null)
 			{
-				currentItem.PreviousItemHasGoals = true;
-
+				currentItem.PreviousItemHasGoals = true
 			}
 			else
 			{
@@ -130,9 +129,13 @@ namespace MemoMoods.Views
 		public async void ChangeBannerBasedOnMood()
 		{
 			List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
-			var lastItem = memoMoodsItems[0];
 
-			mostRecentMood = lastItem.CowMood;
+			if (memoMoodsItems.Capacity > 0)
+            {
+				var lastItem = memoMoodsItems[0];
+
+				mostRecentMood = lastItem.CowMood;
+			}
 		}
 
 		private int _mostRecentMood;

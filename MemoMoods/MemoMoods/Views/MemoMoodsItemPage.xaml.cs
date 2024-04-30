@@ -29,22 +29,28 @@ namespace MemoMoods.Views
 
         async void SetGoalSectionVisibilty()
 		{
+
             List<MemoMoodsItem> memoMoodsItems = await App.Database.GetItemsAsync();
-            var lastItem = memoMoodsItems[0];
-            
-            if (lastItem.Question3 != null)
-			{
-				GoalQuote.IsVisible = true;
-				YesterdaysGoalQuestion.IsVisible = true;
-				GoalDivider.IsVisible = true;
 
-				GoalQuoteLabel.Text = lastItem.Question3;
-
-            } else
+			if (memoMoodsItems.Capacity > 0)
 			{
-                GoalQuote.IsVisible = false;
-                YesterdaysGoalQuestion.IsVisible = false;
-				GoalDivider.IsVisible = false;
+				var lastItem = memoMoodsItems[0];
+
+				if (lastItem.Question3 != null)
+				{
+					GoalQuote.IsVisible = true;
+					YesterdaysGoalQuestion.IsVisible = true;
+					GoalDivider.IsVisible = true;
+
+					GoalQuoteLabel.Text = lastItem.Question3;
+
+				}
+				else
+				{
+					GoalQuote.IsVisible = false;
+					YesterdaysGoalQuestion.IsVisible = false;
+					GoalDivider.IsVisible = false;
+				}
 			}
 		}
 

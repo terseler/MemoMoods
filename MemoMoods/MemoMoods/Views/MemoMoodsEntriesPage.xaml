@@ -26,7 +26,6 @@ Title="MemoMoods" NavigationPage.HasNavigationBar="false" BackgroundColor="White
         <Image Source="DividerTitle" Margin="0,0,0,0"/>
 
         <Label Text="Most Recent" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#bbb2cf" Margin="10,0,0,0" />
-        <Label Text="{Binding mostRecentMood}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#bbb2cf" Margin="10,0,0,0" />
 
         <ListView x:Name="listView" Margin="10,0,10,-200" RowHeight="100" ItemSelected="OnListItemSelected">
             <ListView.ItemTemplate>
